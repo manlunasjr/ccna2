@@ -331,11 +331,13 @@ www.web311.com open only dns, https, ssh       ==> 6 lines:
    protocol         hacker    victim       port
 tcp,udp,icmp,IP     Any      web310/11
 Config t
+ip host ebet10.com 192.168.103.10
+ip host ebet11.com 192.168.103.11
 service timestamps log datetime
 service timestamps debug datetime
-logging 10.m.1.10
+logging 10.11.1.10
 logging trap 5
-NO IP access-list Extended FWP1
+NO IP access-list Extended NGFW1
 IP access-list Extended FWP1
  Permit tcp Any host www.web310.com eq 80 log
  Permit tcp Any host www.web310.com eq 443 log
@@ -344,11 +346,11 @@ IP access-list Extended FWP1
  Permit tcp Any host www.web311.com eq 443 log
  Permit tcp Any host www.web311.com eq 22 log
  Int Gi 3
-  ip access-group FWP1 in
+  ip access-group NGFW1 in
 REMOVE FIREWALL:
 CONfig t
  Int Gi 3
-  NO ip access-group FWP1 in
+  NO ip access-group NGWF1 in
 end
 
 TAKASSSSSSSSG:  control shift 6 bitaw X
@@ -359,35 +361,39 @@ ebet311.com open only telnet, ssh, https, ping/icmp => 7lines
   GOLDEN  FIREWALL FORMULA:  paloalto,fortinet,cisco,checkpoint.
    protocol         hacker    victim       port
 config t
-NO IP access-list Extended WAF2
-IP access-list Extended WAF2
- Permit tcp Any host www.web310.com eq __ log
- Permit tcp Any host www.web310.com eq __ log
- Permit tcp Any host www.web310.com eq __ log
- Permit tcp Any host www.web311.com eq __ log
- Permit tcp Any host www.web311.com eq __ log
- Permit tcp Any host www.web311.com eq __ log 
- Permit ___  Any host www.web311.com log
+NO IP access-list Extended NGFW3
+
+ Permit tcp Any host ebet10.com eq 22 log
+ Permit tcp Any host ebet10.com eq 53 log
+ Permit tcp Any host ebet10.com eq 443 log
+ Permit tcp Any host ebet10.com eq 2000 log
+ Permit tcp Any host ebet11.com eq 80 log
+ Permit tcp Any host ebet11.com eq 1720 log
+ Permit tcp Any host ebet11.com eq 5060 log
+ Permit tcp Any host ebet11.com eq 5061 log
+ Permit icmp  Any host ebet10.com log
  Int Gi 3
-  ip access-group WAF2 in
+  ip access-group NGFW3 in
+end
 REMOVE FIREWALL:
 CONfig t
  Int Gi 3
-  NO ip access-group WAF2 in
+  NO ip access-group NGFW3 in
 end
 
 ex.3: you are the admin for SUPERPRANING pogo sites:
 ebet310.com open only 443
 ebet11web311.com open only ping
 config t
-NO IP access-list Extended PRANING3
-IP access-list Extended PRANING3
+NO IP access-list Extended NGFW3
+IP access-list Extended NGFW3
  Permit tcp Any host www.web310.com eq __ log
  Permit ___  Any host www.web311.com log
 Int Gi 3
   ip access-group PRANING3 in
 
 CYBERSECURITY TASK7: PROTECTING YOUR CORPORATE WEB APPS.
+How to sumbong to splunk LOGS
 EX.1 CREATE A FIREWALL POLICY NAMED Policy1 TO OPEN
 WWW.WEB310.COM HAS HTTP AND HTTPS AS OPEN
 WWW.WEB311.COM HAS SSH AND DNS OPEN
@@ -395,10 +401,10 @@ formula:       PROTOCOL    HACKER    VICTIM     PORT:
 config t
 no ip access-list extended Policy1
 ip access-list extended Policy1
-Permit tcp any host www.web310.com eq 80 log
-Permit tcp any host www.web310.com eq 443 log
-Permit tcp any host www.web311.com eq 22 log
-Permit tcp any  host www.web311.com eq 53 log
+Permit tcp any host www.ebet310.com eq 80 log
+Permit tcp any host www.ebet310.com eq 443 log
+Permit tcp any host www.ebet311.com eq 22 log
+Permit tcp any  host www.ebet311.com eq 53 log
 Interface Gi 3
  ip access-group Policy1 in
  do sh ip access-list Policy1
@@ -1056,6 +1062,7 @@ https:///restconf/data/Cisco-IOS-XE-native:native/interface/Loopback
 
 HomeWork for the Hardest Day in CCNA: 
 CSr, linuxdocker, pythondocker, Postman: RestApi.
+
 
 
 
