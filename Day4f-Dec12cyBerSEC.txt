@@ -592,11 +592,10 @@ Int Gi 3
  ip nat Inside
 Int gi 1
  ip nat Outside
-IP Nat inside source static tcp 192.168.103.21 80 208.8.8.101 8080
-IP Nat inside source static tcp 192.168.103.21 443 208.8.8.101 8443
-IP Nat inside source static tcp 192.168.103.21 22 208.8.8.101 8069
-IP Nat inside source static tcp 192.168.103.22 80 208.8.8.102 8080
-IP Nat inside source static tcp 192.168.103.22 443 208.8.8.102 8443
+IP Nat inside source static tcp 192.168.103.21 80 208.8.8.47 80
+IP Nat inside source static tcp 192.168.103.21 443 208.8.8.47 443
+IP Nat inside source static tcp 192.168.103.22 80 208.8.8.47 8080
+IP Nat inside source static tcp 192.168.103.22 443 208.8.8.47 8443
 IP nat inside source list 8 int gi 1 Overload
 end
 show ip nat translation
@@ -1062,6 +1061,7 @@ https:///restconf/data/Cisco-IOS-XE-native:native/interface/Loopback
 
 HomeWork for the Hardest Day in CCNA: 
 CSr, linuxdocker, pythondocker, Postman: RestApi.
+
 
 
 
