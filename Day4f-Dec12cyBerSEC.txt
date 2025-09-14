@@ -354,8 +354,8 @@ end
 TAKASSSSSSSSG:  control shift 6 bitaw X
 
 ex.2: you are the admin for pogo sites: WAF2
-www.web310.com open only ssh,dns, http
-www.web311.com open only telnet, ssh, https, ping/icmp => 7lines 
+ebet310.com open only ssh,dns, http
+ebet311.com open only telnet, ssh, https, ping/icmp => 7lines 
   GOLDEN  FIREWALL FORMULA:  paloalto,fortinet,cisco,checkpoint.
    protocol         hacker    victim       port
 config t
@@ -377,8 +377,8 @@ CONfig t
 end
 
 ex.3: you are the admin for SUPERPRANING pogo sites:
-www.web310.com open only 443
-www.web311.com open only ping
+ebet310.com open only 443
+ebet11web311.com open only ping
 config t
 NO IP access-list Extended PRANING3
 IP access-list Extended PRANING3
@@ -1056,6 +1056,7 @@ https:///restconf/data/Cisco-IOS-XE-native:native/interface/Loopback
 
 HomeWork for the Hardest Day in CCNA: 
 CSr, linuxdocker, pythondocker, Postman: RestApi.
+
 
 
 
