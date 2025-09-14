@@ -31,6 +31,7 @@ ping www.ngcpM.ph
 
 youporn.com
 pornhub.com 66.254.114.41
+            161.49.21.
 redtube.com 66.254.114.23
 faketaxi.com 66.254.114.234
 bangbros.com
@@ -74,10 +75,11 @@ do sh ip int brief
 ALL THE PORN SITES THE WORLD ARE OWNED BY 5 COMPANIES:
 
 config t
-NO ip access-list standard NOPORNFAP
-ip access-list standard NOPORNFAP
+NO ip access-list standard NOPORN
+ip access-list standard NOPORN
 DENY 66.254.0.0 0.0.255.255
 DENY 104.21.0.0 0.0.255.255
+DENY 161.49.21.0 0.0.255.255
 DENY 68.235.0.0 0.0.255.255
 DENY 104.17.0.0 0.0.255.255
 DENY 88.208.0.0 0.0.255.255
@@ -85,12 +87,12 @@ DENY 208.77.0.0 0.0.255.255
 DENY 172.67.0.0 0.0.255.255
 Permit Any
 Int Gi 1
- ip access-group NOPORNFAP in
+ ip access-group NOPORN in
 end
 Goberno: allow all Porn, for freedom of expression!
 config t
 Int gi 1
- NO ip access-group NOPORNFAP in
+ NO ip access-group NOPORN in
 end
 
 Alternative: use standard ACL 1-99
@@ -119,15 +121,15 @@ ping www.dlsu.edu.ph 172.67.14.0   104.22.36.0
 ping www.ccp.edu.ph 50.6.160.0     
 ping www.feu.edu.ph 184.168.125.0  
 ping  www.ue.edu.ph 155.137.92.0  
-ping  www.yourschool.edu.ph = _________
+ping  www.ama.edu.ph 118.139.160.77
 config t
 NO ip access-list standard NOISKUL
 ip access-list standard NOISKUL
-DENY   __.__.__.__   0.0.255.255
-DENY   __.__.__.__   0.0.255.255
-DENY   __.__.__.__   0.0.255.255
-DENY   __.__.__.__   0.0.255.255
-DENY   __.__.__.__   0.0.255.255
+DENY  172.67.0.0  0.0.255.255
+DENY  50.6.0.0   0.0.255.255
+DENY  184.168.0.0   0.0.255.255
+DENY  155.137.0.0   0.0.255.255
+DENY  118.139.0.0   0.0.255.255
 Permit Any
 Int Gi 1
  ip access-group NOISKUL in
@@ -143,11 +145,14 @@ www.iptorrents.com  104.26.   95.211.
 config t
 NO ip access-list standard NOTORS
 ip access-list standard NOTORS
-DENY   __.__.__.__   0.0.255.255
-DENY   __.__.__.__   0.0.255.255
-DENY   __.__.__.__   0.0.255.255
-DENY   __.__.__.__   0.0.255.255
-DENY   __.__.__.__   0.0.255.255
+DENY   62.159.0.0 0.0.255.255
+DENY  172.67.0.0 0.0.255.255
+DENY  76.223.0.0 0.0.255.255
+DENY  104.21.0.0 0.0.255.255
+DENY  13.24.0.0 0.0.255.255
+DENY  84.32.0 0.0.255.255
+DENY  76.223.0.0 0.0.255.255
+DENY  13.248.0 0.0.255.255
 Permit Any
 Int Gi 1
  ip access-group NOTORS in
@@ -279,6 +284,19 @@ service udp-small-servers
 ip dns server
 ip http server
 ip http secure-server
+telephony-service
+max-ephone 2
+max-dn 4
+ip source-address 192.168.102.11 source 2000
+voice service voip
+allow-connections sip to sip
+sip
+registrar server expires max 600 min 5060
+voice register global
+mode cme
+max-dn 12
+max-pool 12
+
 !Make Ping EASY
 ip host www.web310.com 192.168.103.10
 ip host www.web311.com 192.168.103.11
@@ -1038,6 +1056,7 @@ https:///restconf/data/Cisco-IOS-XE-native:native/interface/Loopback
 
 HomeWork for the Hardest Day in CCNA: 
 CSr, linuxdocker, pythondocker, Postman: RestApi.
+
 
 
 
